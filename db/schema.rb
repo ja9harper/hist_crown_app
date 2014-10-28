@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028230707) do
+ActiveRecord::Schema.define(version: 20141028232021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "places", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "image"
+    t.string   "history"
+    t.string   "latlng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", force: true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "place_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stories", ["place_id"], name: "index_stories_on_place_id", using: :btree
+  add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
