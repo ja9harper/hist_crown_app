@@ -1,5 +1,4 @@
-DB = Sequel.connect("postgres://localhost:5432/hist_crown_app_development")
-Dir['./helpers/*.rb'].each { |helper| require helper }
-Dir['./models/*.rb'].each { |model| require model }
-require './controllers/application_controller'
-Dir['./controllers/*.rb'].each { |controller| require controller }
+# Set up gems listed in the Gemfile.
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
+
+require 'bundler/setup' if File.exist?(ENV['BUNDLE_GEMFILE'])
