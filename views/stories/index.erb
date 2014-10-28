@@ -1,0 +1,8 @@
+<%= link_to "New", "/stories/new" %>
+<ul>
+<% @stories.each do |story| %>
+  <li>
+    <%= link_to story.name, "/story/#{story.id}" %>
+  </li>
+<% end %>
+</ul>

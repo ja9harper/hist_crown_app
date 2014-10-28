@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+
+    <title>hist_crown_app</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+   <!--  <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" media="all"> -->
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+   
+  </head>
+    <header>
+      <h1>Historic Crown Heights</h1>
+         <div id="nav">
+           <ul class="nav">
+             <li><a href="/">home <i class="fa fa-home"></i></a></li>
+             <li><a href="/places">places <i class="fa fa-building-o"></i></a></li>
+             <li><a href="/stories/new">add a story <i class="fa fa-comment"></i></a></li>
+          </ul>
+        </div>
+    </header>
+  <body>
+    <div id="map">
+       <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+      <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/ja9harper.k2i6pfn9/attribution,geocoder,share.html?access_token=pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA'></iframe>
+     </div> 
+     <div class="article column1">
+      <p>Nestled in Central Brooklyn, the neighborhood got its start as Crow Hill</p>
+    </div>
+    <div class="article column2">
+      <p>This vibrant neighborhood is home to diverse cultures. </p>
+    </div>
+    <div class="article column3">
+      <p>Visit and enjoy. </p>
+    </div>
+
+    
+    <%= yield %>
+  </body>
+  <footer>JAH Websites<i class="fa fa-copyright"></i> 2014</footer>
+</html>
+

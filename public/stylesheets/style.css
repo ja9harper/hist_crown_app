@@ -1,0 +1,36 @@
+body {
+ 
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1 {
+	text-indent: -9999px;
+	width: 940px;
+	height: 130px;
+	margin: 0px;
+}
+header {
+	heigth: 160px;
+}
+
+#nav ul {
+	margin:0px;
+	padding:5px 0px 5px 30px;
+}
+.nav li {
+	display:inline;
+	margin-right:40px;
+}
+#nav li a {
+	color: #ffffff;
+}
+.column1, .column2, .column3 {
+	width: 31.3%;
+	float: left;
+	margin: 1%;}
+	.column3 {float: right;}
+}
+#footer {
+
+}
