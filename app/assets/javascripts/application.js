@@ -12,11 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
-//= require jquery.ui.all
-//= require jquery.modal
-// modal window javascript
 
 $(document).ready(function(){  
   
@@ -87,10 +82,27 @@ function show_modal(modal_id){
 // mapbox javascript
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
-var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
-    map = L.mapbox.map('map', 'ja9harper.k2i6pfn9');
 
-geocoder.query('', showMap);
+var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
+map = L.mapbox.map('map', 'ja9harper.k2i6pfn9');
+
+// geocoder.query('Brooklyn, NY', showMap);
+map.setView([40.664839, -73.942855], 14);
+
+// Disable drag and zoom handlers.
+// map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+
+// Disable tap handler, if present.
+if (map.tap) map.tap.disable();
+
+  // // Provide your access token
+  // L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
+  // // Create a map in the div #map
+  // L.mapbox.map('map', 'ja9harper.k2i6pfn9');
+
 
 function showMap(err, data) {
     // The geocoder can return an area, like a city, or a
@@ -101,5 +113,8 @@ function showMap(err, data) {
     } else if (data.latlng) {
         map.setView([data.latlng[0], data.latlng[1]], 13);
     }
+
+
 }
+
 

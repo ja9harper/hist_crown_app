@@ -11,17 +11,7 @@
  * file per style scope.
  *
  *= require normalize
+ *= require jquery-ui
  *= require style
  *= require_self
- *= require jquery.ui.all
- *= require jquery.modal
  */
-
- .login {
-  font-size: 0.8em;
-  width: 250px;
-  background-image: ('/app/assets/images/histcrownsplash.jpg')
-  margin: 0 auto;
-  border-radius: 30px;
-  padding: 5px 0;
-}

@@ -42,7 +42,5 @@ group :development, :test  do
 	gem 'pry-rails'
 end
 
-group :assets do
-  gem 'jquery-ui-rails'
-  gem 'jquery-modal-rails'
-end
+gem 'jquery-ui-rails'
+# gem 'jquery-modal-rails'

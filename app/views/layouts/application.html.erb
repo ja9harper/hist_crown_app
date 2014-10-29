@@ -1,39 +1,28 @@
 <!DOCTYPE html>
 
-
 <html>
-	<head>
- 		<title>HistCrownApp</title>	
-			<meta charset=utf-8 />
+<head>
+	<title>HistCrownApp</title>	
+	<meta charset=utf-8 />
 
-			<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-			<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
-			<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
-			<link href="/assets/style.css" media="all" rel="stylesheet" />
-			<link href="/assets/javascripts/application.js"/>
-				<style>
-  				body { margin:20; padding:20; }
-  				#map { position:relative; top:0; bottom:0; width:100%; }
-				</style>
-	</head>
-		<header>
-			
-		
-			<h1>historic crown heights</h1>
-			<%= image_tag("histcrownsplash.jpg") %>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+
+	<%= stylesheet_link_tag "application", media: "all" %>
+	
+
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+</head>
+<nav>
+	</nav>
+
 <body>
-<div id='map'>
-<script>
-// Provide your access token
-L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
-// Create a map in the div #map
-L.mapbox.map('map', 'ja9harper.k2i6pfn9');
-</script>
-</div>
-  
-<div id='first_window' class='modal_window'>This is the first modal window</div>  
-<div id='second_window' class='modal_window'>Welcome to the second modal window</div>  
+	<header>
+		<h1>historic crown heights</h1>
+	</header>
 
-<%= yield %>
+
+	<%= javascript_include_tag "application" %>
 </body>
 </html>

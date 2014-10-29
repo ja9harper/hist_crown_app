@@ -1,38 +1,36 @@
-<h1>places</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Image</th>
-      <th>History</th>
-      <th>Latlng</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @places.each do |place| %>
-      <tr>
-        <td><%= place.name %></td>
-        <td><%= place.address %></td>
-        <td><%= place.image %></td>
-        <td><%= place.history %></td>
-        <td><%= place.latlng %></td>
-        <td><%= link_to 'Show', place %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<script>
-// Provide your access token
-L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
-// Create a map in the div #map
-<div id="map">
-L.mapbox.map('map', 'ja9harper.k2i6pfn9');
+<div id="map-container">
+  <div id='map'></div>
 </div>
-</script>
-<br>
+
+<div id="content">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Image</th>
+        <th>History</th>
+        <th>Latlng</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @places.each do |place| %>
+        <tr>
+          <td><%= place.name %></td>
+          <td><%= place.address %></td>
+          <td><%= place.image %></td>
+          <td><%= place.history %></td>
+          <td><%= place.latlng %></td>
+          <td><%= link_to 'Show', place %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
 
 
