@@ -21,13 +21,18 @@
         <td><%= place.history %></td>
         <td><%= place.latlng %></td>
         <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<script>
+// Provide your access token
+L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
+// Create a map in the div #map
+<div id="map">
+L.mapbox.map('map', 'ja9harper.k2i6pfn9');
+</div>
+</script>
 <br>
 
-<%= link_to 'New Place', new_place_path %>
+
