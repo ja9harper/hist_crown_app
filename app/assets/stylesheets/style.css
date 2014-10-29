@@ -13,6 +13,9 @@ h1 {
 header {
 	heigth: 160px;
 }
+header img {
+	width: 100%;
+}
 
 #nav ul {
 	margin:0px;
