@@ -34,7 +34,7 @@ header img {
 .column1, .column2, .column3 {
 	width: 31.3%;
 	float: left;
-	margin: 1%;}
+	margin: 1%;
 }
 
 .column3 {
@@ -70,7 +70,7 @@ header img {
 .login {
   font-size: 0.8em;
   width: 250px;
-  background-image: ('/app/assets/images/histcrownsplash.jpg')
+  background-image: ('/app/assets/images/histcrownsplash.jpg');
   margin: 0 auto;
   border-radius: 30px;
   padding: 5px 0;
