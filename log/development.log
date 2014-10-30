@@ -17295,3 +17295,94 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 22:19:18 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 22:19:18 -0400
+
+
+Started GET "/stories" for 127.0.0.1 at 2014-10-29 22:25:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoriesController#index as HTML
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories"
+  [1m[36mPlace Load (0.4ms)[0m  [1mSELECT  "places".* FROM "places"  WHERE "places"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered stories/index.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 474ms (Views: 442.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/assets/jquery-ui/accordion.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/autocomplete.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/menu.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/resizable.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/button.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/draggable.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/normalize.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/dialog.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/datepicker.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/progressbar.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/selectable.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/selectmenu.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/slider.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/spinner.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/tabs.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/tooltip.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/base.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui/all.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 22:25:34 -0400

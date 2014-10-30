@@ -45,3 +45,4 @@ end
 
 gem 'jquery-ui-rails'
 # gem 'jquery-modal-rails'
+gem 'rails_12factor' , group: :production
