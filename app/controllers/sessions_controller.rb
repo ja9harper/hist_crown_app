@@ -4,10 +4,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    binding.pry
     if user && user.authenticate(params[:password])
+      # binding.pry
       log_in(user)
-      redirect_to(stories_users_new_path(user))
+      redirect_to(stories_path)
     else
       flash[:error] = "Incorrect username or password."
       redirect_to(login_path)

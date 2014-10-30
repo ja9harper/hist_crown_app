@@ -1,4 +1,19 @@
-<h1>Listing stories</h1>
+
+
+<div id= "map">
+
+  <script>
+
+   L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
+
+    L.mapbox.map('map', 'ja9harper.k2i6pfn9');
+
+  </script>
+</div>
+
+<h1>memories</h1>
+
+<div id = memories
 
 <table>
   <thead>
@@ -19,7 +34,6 @@
         <td><%= story.place %></td>
         <td><%= story.user %></td>
         <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -27,5 +41,5 @@
 </table>
 
 <br>
-
+</div>
 <%= link_to 'New Story', new_story_path %>
