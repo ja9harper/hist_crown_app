@@ -11,6 +11,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @story = Story.find_by(id: params[:id])
   end
 
   # GET /stories/new
@@ -19,7 +20,8 @@ class StoriesController < ApplicationController
   end
 
   # GET /stories/1/edit
-  def edit
+  def edit 
+    @story = Story.find_by(id: params[:id])
   end
 
   # POST /stories
