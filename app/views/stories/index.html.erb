@@ -13,9 +13,8 @@
 
 <h1>memories</h1>
 
-<div id = memories
-
-<table>
+<div id="modal_window">
+<table  class="memory_table">
   <thead>
     <tr>
       <th>Title</th>
@@ -25,7 +24,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @stories.each do |story| %>
       <tr>
@@ -39,9 +37,11 @@
     <% end %>
   </tbody>
 </table>
+</div>
+
 <footer>
 </footer>
 <br>
 </div>
-</div>    
+   
 <%= link_to 'New Story', new_story_path %>

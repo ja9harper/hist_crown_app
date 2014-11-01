@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#Historic Crown Heights
+This is an app which seeks to highlight the numerous historical buildings in this fast-changing neighborhood. However, a neighborhood is not just buildings but people as well. A neighborhood is not just buildings it is also the people so this allows users to post memories about the buildings. Ideally, I would like these memories to be audio files. It was deployed to Heroku as still-woodland-6669.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+##User Stories
+* A user can sign up. 
+* A user can log in. 
+* A user can see a map with historical buildings highlighted.
+* A user can click on buildings for more information.
+* A user can add stories to buildings.
+* A user can edit stories
+* A user can delete stories
+
+##Technologies used
+* Ruby
+* Ruby on Rails
+* MapBox
+* Java Script
+
+
+<div style="width: 320px; height: 240px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:320px; height:240px" src="https://www.lucidchart.com/documents/embeddedchart/e8db444e-930f-4dc7-a9c8-f23db2f742d5"></iframe><!--<a href="https://www.lucidchart.com/pages/examples/mind_mapping_software" style="margin: 0; padding: 0; border: none; display: inline-block; position: absolute; bottom: 5px; left: 5px;"><img alt="mind mapping software"title="Lucidchart online diagrams"style="width: 100px; height: 30px; margin: 0; padding: 0; border-image: none; border: none; display: 

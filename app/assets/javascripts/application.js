@@ -13,101 +13,121 @@
 //= require jquery
 //= require jquery_ujs
 
-$(document).ready(function(){  
-  
-//get the height and width of the page  
-var window_width = $(window).width();  
-var window_height = $(window).height();  
-  
-//vertical and horizontal centering of modal window(s)  
-/*we will use each function so if we have more then 1 
-modal window we center them all*/  
-$('.modal_window').each(function(){  
-  
-    //get the height and width of the modal  
-    var modal_height = $(this).outerHeight();  
-    var modal_width = $(this).outerWidth();  
-  
-    //calculate top and left offset needed for centering  
-    var top = (window_height-modal_height)/2;  
-    var left = (window_width-modal_width)/2;  
-  
-    //apply new top and left css values  
-    $(this).css({'top' : top , 'left' : left});  
-  
-});  
-  
-    $('.activate_modal').click(function(){  
-  
-          //get the id of the modal window stored in the name of the activating element  
-          var modal_id = $(this).attr('name');  
-  
-          //use the function to show it  
-          show_modal(modal_id);  
-  
-    });  
-  
-    $('.close_modal').click(function(){  
-  
-        //use the function to close it  
-        close_modal();  
-  
-    });  
-  
-});  
+$(document).ready(function () {
+    var yOff = 15;
+    var xOff = -20;
+    var pathToImage = "/assets/images/bkkids.jpg";
+
+$("#map:nth-child(2)").hover(function (e) {
+        $("body").append("<p id='bkkids.jpg'><img src='" + pathToImage + "'/></p>");
+        $("bkkids.jpg")
+            .css("position", "absolute")
+            .css("top", (e.pageY - yOff) + "px")
+            .css("left", (e.pageX + xOff) + "px")
+            .fadeIn("fast");
+    },
+
+    function () {
+        $("bkkids.jpg").remove();
+    });
+
+    $("#map:nth-child(2)").mousemove(function (e) {
+        $("bkkids.jpg")
+            .css("top", (e.pageY - yOff) + "px")
+            .css("left", (e.pageX + xOff) + "px");
+    });
+});
+$("#map:nth-child(3)").hover(function (e) {
+        $("body").append("<p id='bkkids.jpg'><img src='" + pathToImage + "'/></p>");
+        $("bkkids.jpg")
+            .css("position", "absolute")
+            .css("top", (e.pageY - yOff) + "px")
+            .css("left", (e.pageX + xOff) + "px")
+            .fadeIn("fast");
+    },
+
+    function () {
+        $("bkkids.jpg").remove();
+    });
+
+    $("#map:nth-child(3)").mousemove(function (e) {
+        $("bkkids.jpg")
+            .css("top", (e.pageY - yOff) + "px")
+            .css("left", (e.pageX + xOff) + "px");
+    });
+});
+
   
 //THE FUNCTIONS  
   
-function close_modal(){  
-  
-    //hide the mask  
-    $('#mask').fadeOut(500);  
-  
-    //hide modal window(s)  
-    $('.modal_window').fadeOut(500);  
-  
-}  
-function show_modal(modal_id){  
-  
-    //set display to block and opacity to 0 so we can use fadeTo  
-    $('#mask').css({ 'display' : 'block', opacity : 0});  
-  
-    //fade in the mask to opacity 0.8  
-    $('#mask').fadeTo(500,0.8);  
-  
-     //show the modal window  
-    $('#'+modal_id).fadeIn(500);  
-  
+$(document).ready(function(){
+
+  $(document).bind('ajaxError', 'form#new_person', function(event, jqxhr, settings, exception){
+
+    // note: jqxhr.responseJSON undefined, parsing responseText instead
+    $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
+
+  });
+
+});
+
+(function($) {
+
+  $.fn.modal_success = function(){
+    // close modal
+    this.modal('hide');
+
+    // clear form input elements
+    // todo/note: handle textarea, select, etc
+    this.find('form input[type="text"]').val('');
+
+    // clear error state
+    this.clear_previous_errors();
+  };
+
+  $.fn.render_form_errors = function(errors){
+
+    $form = this;
+    this.clear_previous_errors();
+    model = this.data('model');
+
+    // show error messages in input form-group help-block
+    $.each(errors, function(field, messages){
+      $input = $('input[name="' + model + '[' + field + ']"]');
+      $input.closest('.form-group').addClass('has-error').find('.help-block').html( messages.join(' & ') );
+    });
+
+  };
+
+  $.fn.clear_previous_errors = function(){
+    $('.form-group.has-error', this).each(function(){
+      $('.help-block', $(this)).html('');
+      $(this).removeClass('has-error');
+    });
+  }
+
+}(jQuery));
 }  
 // mapbox javascript
 
-L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
+L.mapbox.accessToken = 1pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA;
 
 var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
 map = L.mapbox.map('map', 'ja9harper.k2i6pfn9');
 
-// geocoder.query('Brooklyn, NY', showMap);
 map.setView([40.664839, -73.942855], 14);
 
-// Disable drag and zoom handlers.
+
 // map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 
-// Disable tap handler, if present.
 if (map.tap) map.tap.disable();
 
-  // // Provide your access token
-  // L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
-  // // Create a map in the div #map
-  // L.mapbox.map('map', 'ja9harper.k2i6pfn9');
-
+  
 
 function showMap(err, data) {
-    // The geocoder can return an area, like a city, or a
-    // point, like an address. Here we handle both cases,
-    // by fitting the map bounds to an area or zooming to a point.
     if (data.lbounds) {
         map.fitBounds(data.lbounds);
     } else if (data.latlng) {
