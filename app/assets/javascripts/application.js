@@ -13,128 +13,121 @@
 //= require jquery
 //= require jquery_ujs
 
-$(document).ready(function () {
-    var yOff = 15;
-    var xOff = -20;
-    var pathToImage = "/assets/images/bkkids.jpg";
 
-$("#map:nth-child(2)").hover(function (e) {
-        $("body").append("<p id='bkkids.jpg'><img src='" + pathToImage + "'/></p>");
-        $("bkkids.jpg")
-            .css("position", "absolute")
-            .css("top", (e.pageY - yOff) + "px")
-            .css("left", (e.pageX + xOff) + "px")
-            .fadeIn("fast");
-    },
 
-    function () {
-        $("bkkids.jpg").remove();
-    });
-
-    $("#map:nth-child(2)").mousemove(function (e) {
-        $("bkkids.jpg")
-            .css("top", (e.pageY - yOff) + "px")
-            .css("left", (e.pageX + xOff) + "px");
-    });
-});
-$("#map:nth-child(3)").hover(function (e) {
-        $("body").append("<p id='bkkids.jpg'><img src='" + pathToImage + "'/></p>");
-        $("bkkids.jpg")
-            .css("position", "absolute")
-            .css("top", (e.pageY - yOff) + "px")
-            .css("left", (e.pageX + xOff) + "px")
-            .fadeIn("fast");
-    },
-
-    function () {
-        $("bkkids.jpg").remove();
-    });
-
-    $("#map:nth-child(3)").mousemove(function (e) {
-        $("bkkids.jpg")
-            .css("top", (e.pageY - yOff) + "px")
-            .css("left", (e.pageX + xOff) + "px");
-    });
-});
 
   
 //THE FUNCTIONS  
   
 $(document).ready(function(){
+    console.log("hi");
+    L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
+        var map = L.mapbox.map('map', 'ja9harper.k2i6pfn9').setView([40.664839, -73.942855], 14);
 
-  $(document).bind('ajaxError', 'form#new_person', function(event, jqxhr, settings, exception){
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
 
-    // note: jqxhr.responseJSON undefined, parsing responseText instead
-    $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
+        if (map.tap) map.tap.disable();
 
-  });
+
+        var geoJson =  [{
+            type:'Feature', 
+            geometry: {
+                type:'Point', 
+                coordinates: [-73.944486, 40.674642]
+            }, 
+            properties: {
+            title: "Brooklyn Children's Museum",
+            description: "145 Brooklyn Avenue. Built in 1899, this bright yellow building is popular amongst the under 5 set. ",
+            'marker-size': 'small',
+            'marker-color': '#BE9A6B',
+            }
+        },
+
+        {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [-73.946524, 40.677785]
+            },
+            properties: {
+                title: "Susan B Elkins Home",
+                description: "1375 Pacific Street. The oldest home in Crown Heights construction finished in 1894.",
+                'marker-size': 'small',
+                'marker-color': '#BE9A6B',
+            }
+        },
+
+        {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [-73.94471, 40.672228]
+            },
+            properties: {
+                title: "Saint Gregory's Catholic Church",
+                description: "224 Brooklyn Avenue. This Catholic Church has been serving the Catholic Community of Crown Heights since 1905.",
+                'marker-size': 'small',
+                'marker-color': '#BE9A6B',
+            }
+        },
+        
+        {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [-73.942855, 40.669439]
+            },
+            properties: {
+                title: "Chabad-Lubavitch Hasidic Movement HQ",
+                description: "770 Eastern Parkway.",
+                'marker-size': 'small',
+                'marker-color': '#BE9A6B',
+            }
+        },
+        
+        {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [-73.95187, 40.677785]
+            },
+            properties: {
+                title: "Imperial Apartments",
+                description: "1198 Pacific Street",
+                'marker-size': 'small',
+                'marker-color': '#BE9A6B',
+            }
+        },
+
+        {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [-73.94948959350586, 40.66976709185003]
+            },
+            properties: {
+                title: "Labor Day Parade",
+                description: "Crown Heights is a popular rest stop for revelers at this annual event",
+                'marker-size': 'small',
+                'marker-color': '#BE9A6B',
+            }
+        }
+
+
+        ];
+        var myLayer = L.mapbox.featureLayer().addTo(map);
+        myLayer.setGeoJSON(geoJson);
+
+        myLayer.on('click', function(e) {
+            var place = e.layer.feature.properties.title;
+            $.get('/places/' + place, function() {
+                console.log("place sent");
+            })
+        });
 
 });
 
-(function($) {
-
-  $.fn.modal_success = function(){
-    // close modal
-    this.modal('hide');
-
-    // clear form input elements
-    // todo/note: handle textarea, select, etc
-    this.find('form input[type="text"]').val('');
-
-    // clear error state
-    this.clear_previous_errors();
-  };
-
-  $.fn.render_form_errors = function(errors){
-
-    $form = this;
-    this.clear_previous_errors();
-    model = this.data('model');
-
-    // show error messages in input form-group help-block
-    $.each(errors, function(field, messages){
-      $input = $('input[name="' + model + '[' + field + ']"]');
-      $input.closest('.form-group').addClass('has-error').find('.help-block').html( messages.join(' & ') );
-    });
-
-  };
-
-  $.fn.clear_previous_errors = function(){
-    $('.form-group.has-error', this).each(function(){
-      $('.help-block', $(this)).html('');
-      $(this).removeClass('has-error');
-    });
-  }
-
-}(jQuery));
-}  
-// mapbox javascript
-
-L.mapbox.accessToken = 1pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA;
-
-var geocoder = L.mapbox.geocoder('mapbox.places-v1'),
-map = L.mapbox.map('map', 'ja9harper.k2i6pfn9');
-
-map.setView([40.664839, -73.942855], 14);
-
-
-// map.dragging.disable();
-map.touchZoom.disable();
-map.doubleClickZoom.disable();
-map.scrollWheelZoom.disable();
-
-if (map.tap) map.tap.disable();
-
-  
-
-function showMap(err, data) {
-    if (data.lbounds) {
-        map.fitBounds(data.lbounds);
-    } else if (data.latlng) {
-        map.setView([data.latlng[0], data.latlng[1]], 13);
-    }
-
-
-}
 
 

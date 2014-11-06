@@ -10,31 +10,72 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require normalize
+
  *= require jquery-ui
- *= require style
  *= require_self
  */
 
-body, html {
-	height: 100%;
-
-}
-div {
-	height: 100%;
-}
-
-#container {
-	background: url(<%= image_path("histcrownsplash.jpg") %>) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
- }
-
-#login {
- 
-  margin: 0;
-  border-radius: 30px;
-  padding: 5px 0;
-}
+	.clearfix:before,
+	.clearfix:after {
+	  content: " ";
+	  display: table;
+	}
+	.clearfix:after {
+	  clear: both;
+	}
+	.clearfix {
+	  *zoom: 1;
+	}
+	header {
+		position: relative;
+		height: 100px;
+		background: #800000;
+	}
+	header h1 {
+		padding-top: 1em;
+		padding-left: 1em;
+		font-size: 2em;
+	}
+	header nav {
+		position: absolute;
+		padding-top: 2.5em;
+		right: 8%;
+	}
+	nav a {
+		font-size: 1.5em;
+		text-decoration: none;
+		color: black;
+		padding-right: 1em;
+	}
+	#map-container {
+		padding-top: 2em;
+		float: left;
+		width: 60%;
+		height: 600px;
+	}
+	#map {
+		width: 95%;
+		height: 500px;
+		margin: 0 auto;
+	}
+	#content {
+		float: left;
+		width: 40%;
+		height: 600px;
+		padding-top: 2em;
+	}
+	header h1, header nav {
+		display: inline-block;
+	}
+	.image {
+		height: 500px;
+		width: 75%;
+		margin: 0 auto;
+	}
+	.image img {
+		max-width: 100%;
+		min-height: 100%;
+	}
+	.image-div {
+		margin-bottom: 2em;
+	}

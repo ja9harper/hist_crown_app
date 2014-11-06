@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
+  # before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
@@ -9,7 +9,12 @@ class PlacesController < ApplicationController
 
   # GET /places/1
   # GET /places/1.json
+  #makes rails send back javascript
   def show
+    @place = Place.where(name: params[:name]).first
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /places/new
@@ -64,9 +69,9 @@ class PlacesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_place
-      @place = Place.find(params[:id])
-    end
+    # def set_place
+    #   @place = Place.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
