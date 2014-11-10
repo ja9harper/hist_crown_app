@@ -63,6 +63,7 @@
 		width: 40%;
 		height: 600px;
 		padding-top: 2em;
+		overflow: scroll;
 	}
 	header h1, header nav {
 		display: inline-block;
@@ -79,3 +80,31 @@
 	.image-div {
 		margin-bottom: 2em;
 	}
+	#modal {
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 2;
+		display: none;
+
+	}
+	#modal_form {
+		position: absolute;
+		height: 350px;
+		width: 500px;
+		background-color: white;
+		top: 30%;
+		left: 29%;
+	}
+
+	#modal_form p {
+		text-align: right;
+		padding-right: 11px;
+		padding-top: 6px;
+	}
+
+
+

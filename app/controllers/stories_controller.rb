@@ -17,6 +17,7 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    
   end
 
   # GET /stories/1/edit

@@ -1,0 +1,7 @@
+var storyForm = "<%= escape_javascript(render 'form') %>";
+$('#modal').append(storyForm);
+$('#modal').show();
+
+$('#modal_form p').click(function() {
+	$('#modal').hide();
+});

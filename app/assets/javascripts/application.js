@@ -20,7 +20,11 @@
 //THE FUNCTIONS  
   
 $(document).ready(function(){
-    console.log("hi");
+    $("#new-story").click(function() {
+        $.get('/stories/new', function(){
+            console.log("Working?");
+        })
+    });
     L.mapbox.accessToken = 'pk.eyJ1IjoiamE5aGFycGVyIiwiYSI6IlVUaXBLXzgifQ.tC2ktomTqN0uz0h3yu23FA';
         var map = L.mapbox.map('map', 'ja9harper.k2i6pfn9').setView([40.664839, -73.942855], 14);
 
@@ -39,7 +43,7 @@ $(document).ready(function(){
             }, 
             properties: {
             title: "Brooklyn Children's Museum",
-            description: "145 Brooklyn Avenue. Built in 1899, this bright yellow building is popular amongst the under 5 set. ",
+            description: "145 Brooklyn Avenue. Built in 1899, this bright yellow building is popular amongst the under five set. ",
             'marker-size': 'small',
             'marker-color': '#BE9A6B',
             }
